@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/hover-color'),
+      dir: require('path').join(__dirname, '../../coverage/ngx-hover-color'),
       subdir: '.',
       reporters: [
         { type: 'html' },

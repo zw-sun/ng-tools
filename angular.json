@@ -3,38 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "hover-color": {
+    "ngx-hover-color": {
       "projectType": "library",
-      "root": "projects/hover-color",
-      "sourceRoot": "projects/hover-color/src",
+      "root": "projects/ngx-hover-color",
+      "sourceRoot": "projects/ngx-hover-color/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/hover-color/tsconfig.lib.json",
-            "project": "projects/hover-color/ng-package.json"
+            "tsConfig": "projects/ngx-hover-color/tsconfig.lib.json",
+            "project": "projects/ngx-hover-color/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/hover-color/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-hover-color/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/hover-color/src/test.ts",
-            "tsConfig": "projects/hover-color/tsconfig.spec.json",
-            "karmaConfig": "projects/hover-color/karma.conf.js"
+            "main": "projects/ngx-hover-color/src/test.ts",
+            "tsConfig": "projects/ngx-hover-color/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-hover-color/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/hover-color/tsconfig.lib.json",
-              "projects/hover-color/tsconfig.spec.json"
+              "projects/ngx-hover-color/tsconfig.lib.json",
+              "projects/ngx-hover-color/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -46,5 +46,5 @@
   "cli": {
     "analytics": false
   },
-  "defaultProject": "hover-color"
+  "defaultProject": "ngx-hover-color"
 }

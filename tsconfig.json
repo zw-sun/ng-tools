@@ -20,9 +20,9 @@
       "dom"
     ],
     "paths": {
-      "hover-color": [
-        "dist/hover-color/hover-color",
-        "dist/hover-color"
+      "ngx-hover-color": [
+        "dist/ngx-hover-color/ngx-hover-color",
+        "dist/ngx-hover-color"
       ]
     }
   },

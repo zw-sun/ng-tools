@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/hover-color",
+  "dest": "../../dist/ngx-hover-color",
   "lib": {
     "entryFile": "src/public-api.ts"
   }
