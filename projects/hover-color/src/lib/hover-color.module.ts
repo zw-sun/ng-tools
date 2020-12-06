@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
-import { HoverColorComponent } from './hover-color.component';
-
-
+import { HoverColorDirective } from './hover-color.directive';
 
 @NgModule({
-  declarations: [HoverColorComponent],
-  imports: [
-  ],
-  exports: [HoverColorComponent]
+  declarations: [HoverColorDirective],
+  exports: [HoverColorDirective]
 })
 export class HoverColorModule { }
