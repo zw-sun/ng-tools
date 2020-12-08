@@ -1,11 +1,15 @@
 {
   "name": "ngx-hover-color",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "peerDependencies": {
     "@angular/common": "^11.0.3",
     "@angular/core": "^11.0.3"
   },
   "dependencies": {
     "tslib": "^2.0.0"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/zw-sun/ng-tools.git"
   }
 }
