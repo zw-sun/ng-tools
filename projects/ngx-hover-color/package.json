@@ -1,6 +1,7 @@
 {
   "name": "ngx-hover-color",
-  "version": "0.0.4",
+  "version": "11.0.0",
+  "description": "One angular directive for changing hover color",
   "peerDependencies": {
     "@angular/common": "^11.0.3",
     "@angular/core": "^11.0.3"
@@ -9,7 +10,11 @@
     "tslib": "^2.0.0"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/zw-sun/ng-tools.git"
-  }
+    "type": "git",
+    "url": "https://github.com/zw-sun/ng-tools.git"
+  },
+  "keywords": [
+    "Angular",
+    "hover-color"
+  ]
 }
