@@ -1,3 +1,5 @@
 export interface NgxHoverColorConfig {
-    defaultColor?: string;
-  }
+  defaultColor?: string;
+  defaultBgColor?: string;
+  bgColorOnly?: boolean;
+}

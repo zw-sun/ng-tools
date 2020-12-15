@@ -8,11 +8,18 @@ Import:
 
 You can add default hover color in this way:
 
-        NgxHoverColorModule.forRoot({ defaultColor: "green" })
+        NgxHoverColorModule.forRoot({
+                defaultColor: "green",
+                defaultBgColor: "red",
+                bgColorOnly: false
+        })
 
-
+***Note: Inline attribute values will override global configuration***
 
 #### Release notes
+
+- ##### 2020-12-15
+  * Add support for background changes ([#1](https://github.com/zw-sun/ng-tools/issues/1))
 
 - ##### 2020-12-13
   * Update README.md files
