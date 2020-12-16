@@ -1,6 +1,6 @@
 {
   "name": "ngx-hover-color",
-  "version": "11.1.0",
+  "version": "11.1.1",
   "description": "One angular directive for changing hover color",
   "peerDependencies": {
     "@angular/common": "^11.0.3",

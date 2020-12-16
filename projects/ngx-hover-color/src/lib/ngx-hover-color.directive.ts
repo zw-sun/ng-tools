@@ -1,6 +1,6 @@
 import { NGX_HOVER_COLOR_CONFIG } from './ngx-hover-color.config.token';
 import { NgxHoverColorConfig } from './ngx-hover-color-config';
-import { Directive, ElementRef, HostListener, Inject, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Inject, Input, Optional } from '@angular/core';
 
 @Directive({
   selector: '[ngx-hover-color]'
@@ -28,7 +28,7 @@ export class NgxHoverColorDirective {
   }
   private originalColor: any;
   private originalBgColor: any;
-  constructor(@Inject(NGX_HOVER_COLOR_CONFIG) private ngxHoverColorConfig: NgxHoverColorConfig, private elementRef: ElementRef) {
+  constructor(@Optional() @Inject(NGX_HOVER_COLOR_CONFIG) private ngxHoverColorConfig: NgxHoverColorConfig, private elementRef: ElementRef) {
     this.originalColor = this.elementRef.nativeElement.style.color;
     this.originalBgColor = this.elementRef.nativeElement.style.backgroundColor;
   }
