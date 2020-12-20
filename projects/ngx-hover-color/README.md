@@ -1,10 +1,12 @@
 # NgxHoverColor
 
+Move ngx-hover-color to scope @just-so-so.
+
 Angular tool for changing hover color, see [demo](https://stackblitz.com/edit/ngx-hover-color-example).
 
 Import:
 
-        import { NgxHoverColorModule } from 'ngx-hover-color';
+        import { NgxHoverColorModule } from '@just-so-so/ngx-hover-color';
 
 You can add default hover color in this way:
 
@@ -17,6 +19,9 @@ You can add default hover color in this way:
 ***Note: Inline attribute values will override global configuration***
 
 #### Release notes
+
+- ##### 2020-12-20 (v11.1.3)
+  * Move ngx-hover-color to scope @just-so-so
 
 - ##### 2020-12-20 (v11.1.2)
   * Fix - Inline attribute values don't override global configuration correctly ([#3](https://github.com/zw-sun/ng-tools/issues/3))
