@@ -1,60 +1,77 @@
 import { NGX_HOVER_COLOR_CONFIG } from './ngx-hover-color.config.token';
 import { NgxHoverColorConfig } from './ngx-hover-color-config';
-import { Directive, ElementRef, HostListener, Inject, Input, Optional } from '@angular/core';
+import { Directive, HostListener, Inject, Input, Optional } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Directive({
-  selector: '[ngx-hover-color]'
+  selector: '[ngx-hover-color]',
+  host: {
+    '[style]': 'colorStyle'
+  }
 })
 export class NgxHoverColorDirective {
   @Input('ngx-hover-color') _hoverColor: any;
   @Input('bgColor') _bgColor: any;
   @Input('bgColorOnly') _bgColorOnly: any;
+  isHovering: boolean = false;
 
-  get hoverColor(): any {
-    return this.getColor(this._hoverColor, 'defaultColor');
+  get hoverColor() {
+    if (this._hoverColor) {
+      return this._hoverColor;
+    } else if (this.colorConfig && this.colorConfig.defaultColor) {
+      return this.colorConfig.defaultColor;
+    }
+    return '';
   }
 
-  get bgColor(): any {
-    return this.getColor(this._bgColor, 'defaultBgColor');
+  get bgColor() {
+    if (this._bgColor) {
+      return this._bgColor;
+    } else if (this.colorConfig && this.colorConfig.defaultBgColor) {
+      return this.colorConfig.defaultBgColor;
+    }
+    return '';
   }
 
-  get bgColorOnly(): boolean {
-    if (this._bgColorOnly !== undefined) {
+  get bgColorOnly() {
+    if (typeof this._bgColorOnly === 'boolean') {
       return this._bgColorOnly;
-    } else if (this.ngxHoverColorConfig && this.ngxHoverColorConfig.bgColorOnly !== undefined) {
-      return this.ngxHoverColorConfig.bgColorOnly;
+    } else if (this.colorConfig && (typeof this.colorConfig.bgColorOnly === 'boolean')) {
+      return this.colorConfig.bgColorOnly;
     }
     return false;
   }
-  private originalColor: any;
-  private originalBgColor: any;
-  constructor(@Optional() @Inject(NGX_HOVER_COLOR_CONFIG) private ngxHoverColorConfig: NgxHoverColorConfig, private elementRef: ElementRef) {
-    this.originalColor = this.elementRef.nativeElement.style.color;
-    this.originalBgColor = this.elementRef.nativeElement.style.backgroundColor;
+
+  get colorStyle() {
+    if (!this.isHovering) return;
+    let colorStr = '';
+    const bgonly = this.bgColorOnly;
+    const hc = this.hoverColor;
+    const bgc = this.bgColor;
+    if (bgonly) {
+      if (!bgc) {
+        throw 'No Background Color Provided.'
+      } else {
+        colorStr = `background-color:${bgc};`
+      }
+    } else {
+      if (!hc) {
+        throw 'No Hover Color Provided.'
+      }
+      colorStr = `color:${hc};background-color:${bgc};`
+    }
+    return this.domSanitizer.bypassSecurityTrustStyle(colorStr);
+  }
+  constructor(
+    @Optional() @Inject(NGX_HOVER_COLOR_CONFIG) private colorConfig: NgxHoverColorConfig,
+    private domSanitizer: DomSanitizer) {
   }
 
   @HostListener('mouseover') onMouseOver() {
-    this.assignColor(this.bgColor, this.hoverColor);
+    this.isHovering = true;
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-    this.assignColor(this.originalBgColor, this.originalColor);
-  }
-
-  private assignColor(bgColorIn: any, colorIn: any) {
-    if (this.bgColor) {
-      this.elementRef.nativeElement.style.backgroundColor = bgColorIn;
-    }
-    if (this.bgColorOnly) return;
-    this.elementRef.nativeElement.style.color = colorIn;
-  }
-
-  private getColor(value: any, configValue: 'defaultBgColor' | 'defaultColor') {
-    if (value) {
-      return value;
-    } else if (this.ngxHoverColorConfig && this.ngxHoverColorConfig[configValue]) {
-      return this.ngxHoverColorConfig[configValue];
-    }
-    return '';
+    this.isHovering = false;
   }
 }
