@@ -20,6 +20,9 @@ You can add default hover color in this way:
 
 #### Release notes
 
+- ##### 2020-12-22 (v11.1.4)
+  * Remove DomSanitizer style coding.
+
 - ##### 2020-12-20 (v11.1.3)
   * Move ngx-hover-color to scope @just-so-so
 

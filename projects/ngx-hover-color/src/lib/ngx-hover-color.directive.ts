@@ -1,7 +1,6 @@
 import { NGX_HOVER_COLOR_CONFIG } from './ngx-hover-color.config.token';
 import { NgxHoverColorConfig } from './ngx-hover-color-config';
 import { Directive, HostListener, Inject, Input, Optional } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Directive({
   selector: '[ngx-hover-color]',
@@ -60,11 +59,10 @@ export class NgxHoverColorDirective {
       }
       colorStr = `color:${hc};background-color:${bgc};`
     }
-    return this.domSanitizer.bypassSecurityTrustStyle(colorStr);
+    return colorStr;
   }
   constructor(
-    @Optional() @Inject(NGX_HOVER_COLOR_CONFIG) private colorConfig: NgxHoverColorConfig,
-    private domSanitizer: DomSanitizer) {
+    @Optional() @Inject(NGX_HOVER_COLOR_CONFIG) private colorConfig: NgxHoverColorConfig) {
   }
 
   @HostListener('mouseover') onMouseOver() {
