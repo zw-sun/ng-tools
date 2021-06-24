@@ -23,6 +23,10 @@
       "ngx-hover-color": [
         "dist/ngx-hover-color/ngx-hover-color",
         "dist/ngx-hover-color"
+      ],
+      "ngx-qrcode": [
+        "dist/ngx-qrcode/ngx-qrcode",
+        "dist/ngx-qrcode"
       ]
     }
   },

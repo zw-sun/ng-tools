@@ -1,0 +1,12 @@
+{
+  "name": "@just-so-so/ngx-qrcode",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": ">=9.0.0",
+    "@angular/core": ">=9.0.0",
+    "qrcode": "^1.4.4"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
