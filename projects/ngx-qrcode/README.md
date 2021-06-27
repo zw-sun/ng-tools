@@ -30,7 +30,7 @@ NgxQrCodeOptions
 | Property        | Description                               |
 | --------------- | ----------------------------------------- |
 | [qrCodeOptions] | ``` NgxQrCodeOptions ```                  |
-| [direction]     | ``` 'top' | 'right' |'bottom' |'left' ``` |
+| [direction]     | ``` 'top','right','bottom','left' ``` |
 | [qrData]        | QR code content data                      |
 | (onError)       | ```EventEmitter<Error>```                 |
 | (onSuccess)     | ```EventEmitter<HTMLCanvasElement>```     |
@@ -49,12 +49,12 @@ NgxQrCodeOptions
 | [width]                | same with qrcode [width]                                                            |
 | [colorDark]            | same with qrcode [color.dark]                                                       |
 | [colorLight]           | same with qrcode [color.light]                                                      |
-| [dataUrlType]          | same with qrcode [type], values are ```'image/png' | 'image/jpeg' | 'image/webp'``` |
+| [dataUrlType]          | same with qrcode [type], values are ```'image/png' , 'image/jpeg' , 'image/webp'``` |
 | [rendererQuality]      | same with qrcode [rendererOpts.quality]                                             |
 | [qrData]               | QR code content data                                                                |
-| [outputType]           | ```'img' | 'canvas' | 'url' ```                                                     |
+| [outputType]           | ```'img','canvas','url' ```                                                     |
 | (onError)              | ```EventEmitter<Error>```                                                           |
-| (onSuccess)            | ```EventEmitter<string | HTMLImageElement | HTMLCanvasElement>```                   |
+| (onSuccess)            | ```EventEmitter<string,HTMLImageElement,HTMLCanvasElement>```                   |
 
 ## NgxQrCodeService
 
