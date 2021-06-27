@@ -1,24 +1,64 @@
-# NgxQrcode
+# NgxQrCode
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+It is based on [qrcode](https://www.npmjs.com/package/qrcode), you can use NgxQrCodePopoverDirective to show QrCode Popover on element, also you can use NgxQrCodeComponent as qrcode wrapper.
 
-## Code scaffolding
+Please see [demo](https://codesandbox.io/s/ngx-qrcode-example-oktcd).
 
-Run `ng generate component component-name --project ngx-qrcode` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-qrcode`.
-> Note: Don't forget to add `--project ngx-qrcode` or else it will be added to the default project in your `angular.json` file. 
+Import:
 
-## Build
+        import { NgxQrcodeModule } from '@just-so-so/ngx-qrcode';
 
-Run `ng build ngx-qrcode` to build the project. The build artifacts will be stored in the `dist/` directory.
+## NgxQrCodePopoverDirective
 
-## Publishing
+        <span ngx-qrcode-popover [qrCodeOptions]="qrCodeOptions" [qrData]="'any text'" [direction]="'left'">
 
-After building your library with `ng build ngx-qrcode`, go to the dist folder `cd dist/ngx-qrcode` and run `npm publish`.
+NgxQrCodeOptions
 
-## Running unit tests
+      export interface NgxQrCodeOptions {
+            version?: number;
+            errorCorrectionLevel?: QRCodeErrorCorrectionLevel;
+            toSJISFunc?: (codePoint: string) => number;
+            margin?: number;
+            scale?: number;
+            width?: number;
+            color?: {
+                dark?: string;
+                light?: string;
+            };
+        }
 
-Run `ng test ngx-qrcode` to execute the unit tests via [Karma](https://karma-runner.github.io).
+| Property        | Description                               |
+| --------------- | ----------------------------------------- |
+| [qrCodeOptions] | ``` NgxQrCodeOptions ```                  |
+| [direction]     | ``` 'top' | 'right' |'bottom' |'left' ``` |
+| [qrData]        | QR code content data                      |
+| (onError)       | ```EventEmitter<Error>```                 |
+| (onSuccess)     | ```EventEmitter<HTMLCanvasElement>```     |
 
-## Further help
+## NgxQrCodeComponent
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+        <ngx-qrcode [qrData]="'any text'"></ngx-qrcode>
+
+| Property               | Description                                                                         |
+| ---------------------- | ----------------------------------------------------------------------------------- |
+| [version]              | same with qrcode [version]                                                          |
+| [errorCorrectionLevel] | same with qrcode [errorCorrectionLevel]                                             |
+| [toSJISFunc]           | same with qrcode [toSJISFunc]                                                       |
+| [margin]               | same with qrcode [margin]                                                           |
+| [scale]                | same with qrcode [scale]                                                            |
+| [width]                | same with qrcode [width]                                                            |
+| [colorDark]            | same with qrcode [color.dark]                                                       |
+| [colorLight]           | same with qrcode [color.light]                                                      |
+| [dataUrlType]          | same with qrcode [type], values are ```'image/png' | 'image/jpeg' | 'image/webp'``` |
+| [rendererQuality]      | same with qrcode [rendererOpts.quality]                                             |
+| [qrData]               | QR code content data                                                                |
+| [outputType]           | ```'img' | 'canvas' | 'url' ```                                                     |
+| (onError)              | ```EventEmitter<Error>```                                                           |
+| (onSuccess)            | ```EventEmitter<string | HTMLImageElement | HTMLCanvasElement>```                   |
+
+## NgxQrCodeService
+
+| Method      | Description                                                                                         |
+| ----------- | --------------------------------------------------------------------------------------------------- |
+| (toCanvas)  | ```toCanvas(qrData: any, qrOptions: NgxQrCodeOptions, element?: any): Promise<HTMLCanvasElement>``` |
+| (toDataURL) | ```toDataURL(qrData: any, qrOptions: NgxQrCodeToDataURLOptions, element?: any): Promise<string>```  |

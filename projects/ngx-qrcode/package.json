@@ -1,6 +1,7 @@
 {
   "name": "@just-so-so/ngx-qrcode",
   "version": "1.0.0",
+  "description": "Angular Qrcode tools",
   "peerDependencies": {
     "@angular/common": ">=9.0.0",
     "@angular/core": ">=9.0.0",
@@ -8,5 +9,17 @@
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zw-sun/ng-tools.git"
+  },
+  "keywords": [
+    "Angular",
+    "qrcode",
+    "qrcode wrapper",
+    "ngx-qrcode",
+    "ngx-qrcode-popover"
+  ],
+  "license": "MIT"
 }
